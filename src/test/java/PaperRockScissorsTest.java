@@ -1,8 +1,10 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -11,9 +13,23 @@ class PaperRockScissorsTest {
 
   @InjectMocks private PaperRockScissors testee;
 
-  @Test
-  @DisplayName("When PlayerOne throws Scissors and PlayerTwo throws Paper, PlayerOne wins")
-  public void playRound_ScissorsAgainstPaper() {
-    assertEquals(RoundResult.WINS_PLAYER_ONE, testee.playRound(HandSign.SCISSORS, HandSign.PAPER));
+  private static Stream<Arguments> providePaperRockScissorRoundCombinations() {
+    return Stream.of(
+        Arguments.of(HandSign.PAPER, HandSign.PAPER, RoundResult.DRAW),
+        Arguments.of(HandSign.PAPER, HandSign.ROCK, RoundResult.WINS_PLAYER_ONE),
+        Arguments.of(HandSign.PAPER, HandSign.SCISSORS, RoundResult.WINS_PLAYER_TWO),
+        Arguments.of(HandSign.ROCK, HandSign.PAPER, RoundResult.WINS_PLAYER_TWO),
+        Arguments.of(HandSign.ROCK, HandSign.ROCK, RoundResult.DRAW),
+        Arguments.of(HandSign.ROCK, HandSign.SCISSORS, RoundResult.WINS_PLAYER_ONE),
+        Arguments.of(HandSign.SCISSORS, HandSign.PAPER, RoundResult.WINS_PLAYER_ONE),
+        Arguments.of(HandSign.SCISSORS, HandSign.ROCK, RoundResult.WINS_PLAYER_TWO),
+        Arguments.of(HandSign.SCISSORS, HandSign.SCISSORS, RoundResult.DRAW));
+  }
+
+  @ParameterizedTest
+  @MethodSource("providePaperRockScissorRoundCombinations")
+  public void playRound_combinationOfGames(
+      HandSign playerOneSign, HandSign playerTwoSign, RoundResult result) {
+    assertEquals(result, testee.playRound(playerOneSign, playerTwoSign));
   }
 }
