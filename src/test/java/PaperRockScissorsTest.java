@@ -17,7 +17,7 @@ class PaperRockScissorsTest {
   @CsvSource({"0", "1", "2", "20"})
   public void playGame_callsNTimesToPlayRound(int numberOfRounds) {
     testee.playGame(numberOfRounds);
-    Mockito.verify(paperRockScissorsRound, Mockito.times(1))
+    Mockito.verify(paperRockScissorsRound, Mockito.times(numberOfRounds))
         .playRound(ArgumentMatchers.any(), ArgumentMatchers.any());
   }
 }
