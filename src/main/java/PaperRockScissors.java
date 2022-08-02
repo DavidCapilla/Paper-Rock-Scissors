@@ -1,21 +1,8 @@
 public class PaperRockScissors {
 
-  public RoundResult playRound(HandSign playerOneSign, HandSign playerTwoSign) {
+  PaperRockScissorsRound paperRockScissorsRound;
 
-    if (playerOneSign.equals(playerTwoSign)) {
-      return RoundResult.DRAW;
-    } else if (getSignThatBeats(playerOneSign).equals(playerTwoSign)) {
-      return RoundResult.WINS_PLAYER_ONE;
-    }
-    return RoundResult.WINS_PLAYER_TWO;
-  }
+  public void playGame(int numberOfRounds) {
 
-  private HandSign getSignThatBeats(HandSign handSign) {
-
-    return switch (handSign) {
-      case PAPER -> HandSign.ROCK;
-      case ROCK -> HandSign.SCISSORS;
-      case SCISSORS -> HandSign.PAPER;
-    };
   }
 }
