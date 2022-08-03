@@ -28,7 +28,7 @@ class PaperRockScissorsRoundTest {
   @ParameterizedTest
   @MethodSource("providePaperRockScissorRoundCombinations")
   public void playRound_combinationOfGames(
-      HandSign playerOneSign, HandSign playerTwoSign, RoundResult result) {
-    Assertions.assertEquals(result, testee.playRound(playerOneSign, playerTwoSign));
+      HandSign playerOneSign, HandSign playerTwoSign, RoundResult expectedResult) {
+    Assertions.assertEquals(expectedResult, testee.playRound(playerOneSign, playerTwoSign));
   }
 }
