@@ -19,7 +19,7 @@ class PaperRockScissorsTest {
 
   @Mock private Player playerOne;
   @Mock private Player playerTwo;
-  @Mock private PaperRockScissorsRound paperRockScissorsRound;
+  @Mock private PaperRockScissorsReferee paperRockScissorsReferee;
   @InjectMocks private PaperRockScissors testee;
 
   @ParameterizedTest
@@ -28,20 +28,20 @@ class PaperRockScissorsTest {
 
     when(playerOne.getHandSign()).thenReturn(HandSign.PAPER);
     when(playerTwo.getHandSign()).thenReturn(HandSign.ROCK);
-    when(paperRockScissorsRound.playRound(any(), any()))
+    when(paperRockScissorsReferee.determineWinner(any(), any()))
         .thenReturn(RoundResult.WINS_PLAYER_ONE);
 
     testee.playGame(numberOfRounds);
 
-    verify(paperRockScissorsRound, Mockito.times(numberOfRounds))
-        .playRound(HandSign.PAPER, HandSign.ROCK);
+    verify(paperRockScissorsReferee, Mockito.times(numberOfRounds))
+        .determineWinner(HandSign.PAPER, HandSign.ROCK);
   }
 
   @Test
   public void playGame_invalidNumberOfRounds() {
 
     testee.playGame(-10);
-    verify(paperRockScissorsRound, Mockito.never())
-        .playRound(any(), any());
+    verify(paperRockScissorsReferee, Mockito.never())
+        .determineWinner(any(), any());
   }
 }

@@ -6,15 +6,15 @@ public class PaperRockScissors {
 
   private final Player playerOne;
   private final Player playerTwo;
-  private final PaperRockScissorsRound paperRockScissorsRound;
+  private final PaperRockScissorsReferee paperRockScissorsReferee;
 
   public PaperRockScissors(
-      PaperRockScissorsRound paperRockScissorsRound,
+      PaperRockScissorsReferee paperRockScissorsReferee,
       Player playerOne,
       Player playerTwo) {
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
-    this.paperRockScissorsRound = paperRockScissorsRound;
+    this.paperRockScissorsReferee = paperRockScissorsReferee;
   }
 
   public void playGame(int numberOfRounds) {
@@ -23,7 +23,7 @@ public class PaperRockScissors {
       HandSign playerOneHandSign = playerOne.getHandSign();
       HandSign playerTwoHandSign = playerTwo.getHandSign();
       RoundResult roundResult =
-          paperRockScissorsRound.playRound(playerOneHandSign, playerTwoHandSign);
+          paperRockScissorsReferee.determineWinner(playerOneHandSign, playerTwoHandSign);
 
       // This could be moved to class in charge of the output.
       System.out.println(

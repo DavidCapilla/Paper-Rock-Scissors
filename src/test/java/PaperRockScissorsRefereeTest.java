@@ -10,11 +10,11 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class PaperRockScissorsRoundTest {
+class PaperRockScissorsRefereeTest {
 
-  @InjectMocks private PaperRockScissorsRound testee;
+  @InjectMocks private PaperRockScissorsReferee testee;
 
-  private static Stream<Arguments> providePaperRockScissorRoundCombinations() {
+  private static Stream<Arguments> providePaperRockScissorCombinations() {
     return Stream.of(
         Arguments.of(HandSign.PAPER, HandSign.PAPER, RoundResult.DRAW),
         Arguments.of(HandSign.PAPER, HandSign.ROCK, RoundResult.WINS_PLAYER_ONE),
@@ -28,9 +28,9 @@ class PaperRockScissorsRoundTest {
   }
 
   @ParameterizedTest
-  @MethodSource("providePaperRockScissorRoundCombinations")
-  public void playRound_combinationOfGames(
+  @MethodSource("providePaperRockScissorCombinations")
+  public void determineWinner_combinationOfGames(
       HandSign playerOneSign, HandSign playerTwoSign, RoundResult expectedResult) {
-    Assertions.assertEquals(expectedResult, testee.playRound(playerOneSign, playerTwoSign));
+    Assertions.assertEquals(expectedResult, testee.determineWinner(playerOneSign, playerTwoSign));
   }
 }

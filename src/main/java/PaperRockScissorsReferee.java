@@ -1,9 +1,9 @@
 import domain.HandSign;
 import domain.RoundResult;
 
-public class PaperRockScissorsRound {
+public class PaperRockScissorsReferee {
 
-  public RoundResult playRound(HandSign playerOneSign, HandSign playerTwoSign) {
+  public RoundResult determineWinner(HandSign playerOneSign, HandSign playerTwoSign) {
 
     if (playerOneSign.equals(playerTwoSign)) {
       return RoundResult.DRAW;
