@@ -1,3 +1,4 @@
+import domain.HandSign;
 import java.io.ByteArrayInputStream;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;

@@ -1,3 +1,7 @@
+import domain.HandSign;
+import domain.HandSignGetter;
+import domain.RoundResult;
+
 public class PaperRockScissors {
 
   private final HandSignGetter playerOneHandSignGetter;

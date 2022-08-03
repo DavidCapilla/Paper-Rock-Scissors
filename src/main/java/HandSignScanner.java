@@ -1,3 +1,5 @@
+import domain.HandSign;
+import domain.HandSignGetter;
 import java.util.Scanner;
 
 public class HandSignScanner implements HandSignGetter {

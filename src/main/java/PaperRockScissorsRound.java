@@ -1,3 +1,6 @@
+import domain.HandSign;
+import domain.RoundResult;
+
 public class PaperRockScissorsRound {
 
   public RoundResult playRound(HandSign playerOneSign, HandSign playerTwoSign) {

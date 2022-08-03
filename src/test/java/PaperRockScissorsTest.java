@@ -1,8 +1,14 @@
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import domain.HandSign;
+import domain.HandSignGetter;
+import domain.RoundResult;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -20,10 +26,14 @@ class PaperRockScissorsTest {
   @CsvSource({"1"})
   public void playGame_callsNTimesToPlayRound(int numberOfRounds) {
 
-    Mockito.when(playerOneHandSignGetter.getHandSign()).thenReturn(HandSign.PAPER);
-    Mockito.when(playerTwoHandSignGetter.getHandSign()).thenReturn(HandSign.ROCK);
+    when(playerOneHandSignGetter.getHandSign()).thenReturn(HandSign.PAPER);
+    when(playerTwoHandSignGetter.getHandSign()).thenReturn(HandSign.ROCK);
+    when(paperRockScissorsRound.playRound(any(), any()))
+        .thenReturn(RoundResult.WINS_PLAYER_ONE);
+
     testee.playGame(numberOfRounds);
-    Mockito.verify(paperRockScissorsRound, Mockito.times(numberOfRounds))
+
+    verify(paperRockScissorsRound, Mockito.times(numberOfRounds))
         .playRound(HandSign.PAPER, HandSign.ROCK);
   }
 
@@ -31,7 +41,7 @@ class PaperRockScissorsTest {
   public void playGame_invalidNumberOfRounds() {
 
     testee.playGame(-10);
-    Mockito.verify(paperRockScissorsRound, Mockito.never())
-        .playRound(ArgumentMatchers.any(), ArgumentMatchers.any());
+    verify(paperRockScissorsRound, Mockito.never())
+        .playRound(any(), any());
   }
 }

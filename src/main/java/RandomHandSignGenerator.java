@@ -1,3 +1,5 @@
+import domain.HandSign;
+import domain.HandSignGetter;
 import java.util.Random;
 
 public class RandomHandSignGenerator implements HandSignGetter {

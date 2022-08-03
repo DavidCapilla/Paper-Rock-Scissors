@@ -1,3 +1,4 @@
+import domain.HandSign;
 import java.util.Random;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
