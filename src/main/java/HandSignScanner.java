@@ -14,7 +14,7 @@ public class HandSignScanner implements HandSignGetter {
       String inputSign = inputScanner.next();
       handSign = convertStringToHandSign(inputSign);
       if (handSign == null){
-        System.out.println("Invalid sign " + inputSign + ". Introduce a valid sign: paper, rock or scissors");
+        System.out.println("Invalid sign \"" + inputSign + "\". Valid hand signs: paper, rock or scissors.");
       }
     }
     return handSign;
