@@ -12,9 +12,9 @@ public class PaperRockScissors {
       PaperRockScissorsReferee paperRockScissorsReferee,
       Player playerOne,
       Player playerTwo) {
+    this.paperRockScissorsReferee = paperRockScissorsReferee;
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
-    this.paperRockScissorsReferee = paperRockScissorsReferee;
   }
 
   public void playGame(int numberOfRounds) {
