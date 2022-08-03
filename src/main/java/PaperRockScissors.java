@@ -6,14 +6,15 @@ public class PaperRockScissors {
 
   private final HandSignGetter playerOneHandSignGetter;
   private final HandSignGetter playerTwoHandSignGetter;
-  private PaperRockScissorsRound paperRockScissorsRound;
+  private final PaperRockScissorsRound paperRockScissorsRound;
 
   public PaperRockScissors(
+      PaperRockScissorsRound paperRockScissorsRound,
       HandSignGetter playerOneHandSignGetter,
       HandSignGetter playerTwoHandSignGetter) {
     this.playerOneHandSignGetter = playerOneHandSignGetter;
     this.playerTwoHandSignGetter = playerTwoHandSignGetter;
-    paperRockScissorsRound = new PaperRockScissorsRound();
+    this.paperRockScissorsRound = paperRockScissorsRound;
   }
 
   public void playGame(int numberOfRounds) {
