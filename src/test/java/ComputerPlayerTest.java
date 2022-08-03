@@ -9,10 +9,10 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class RandomHandSignGeneratorTest {
+class ComputerPlayerTest {
 
   @Mock Random randomGenerator;
-  @InjectMocks private RandomHandSignGenerator testee;
+  @InjectMocks private ComputerPlayer testee;
 
   @Test
   public void getHandSign_callsRandomGenerator() {

@@ -1,8 +1,8 @@
 import domain.HandSign;
-import domain.HandSignGetter;
+import domain.Player;
 import java.util.Scanner;
 
-public class HandSignScanner implements HandSignGetter {
+public class HumanPlayer implements Player {
 
   @Override
   public HandSign getHandSign() {

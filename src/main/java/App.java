@@ -9,7 +9,7 @@ public class App {
     System.out.println("Introduce the number of rounds you want to play:");
     int numberOfRounds = inputScanner.nextInt();
     PaperRockScissors paperRockScissors =
-        new PaperRockScissors(new PaperRockScissorsRound(), new HandSignScanner(), new RandomHandSignGenerator());
+        new PaperRockScissors(new PaperRockScissorsRound(), new HumanPlayer(), new ComputerPlayer());
     paperRockScissors.playGame(numberOfRounds);
   }
 }

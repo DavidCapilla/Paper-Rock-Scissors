@@ -1,27 +1,27 @@
 import domain.HandSign;
-import domain.HandSignGetter;
+import domain.Player;
 import domain.RoundResult;
 
 public class PaperRockScissors {
 
-  private final HandSignGetter playerOneHandSignGetter;
-  private final HandSignGetter playerTwoHandSignGetter;
+  private final Player playerOne;
+  private final Player playerTwo;
   private final PaperRockScissorsRound paperRockScissorsRound;
 
   public PaperRockScissors(
       PaperRockScissorsRound paperRockScissorsRound,
-      HandSignGetter playerOneHandSignGetter,
-      HandSignGetter playerTwoHandSignGetter) {
-    this.playerOneHandSignGetter = playerOneHandSignGetter;
-    this.playerTwoHandSignGetter = playerTwoHandSignGetter;
+      Player playerOne,
+      Player playerTwo) {
+    this.playerOne = playerOne;
+    this.playerTwo = playerTwo;
     this.paperRockScissorsRound = paperRockScissorsRound;
   }
 
   public void playGame(int numberOfRounds) {
 
     for (int round = 0; round < numberOfRounds; round++) {
-      HandSign playerOneHandSign = playerOneHandSignGetter.getHandSign();
-      HandSign playerTwoHandSign = playerTwoHandSignGetter.getHandSign();
+      HandSign playerOneHandSign = playerOne.getHandSign();
+      HandSign playerTwoHandSign = playerTwo.getHandSign();
       RoundResult roundResult =
           paperRockScissorsRound.playRound(playerOneHandSign, playerTwoHandSign);
 

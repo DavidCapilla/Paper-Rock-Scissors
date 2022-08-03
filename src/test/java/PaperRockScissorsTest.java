@@ -3,7 +3,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import domain.HandSign;
-import domain.HandSignGetter;
+import domain.Player;
 import domain.RoundResult;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,8 +17,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class PaperRockScissorsTest {
 
-  @Mock private HandSignGetter playerOneHandSignGetter;
-  @Mock private HandSignGetter playerTwoHandSignGetter;
+  @Mock private Player playerOne;
+  @Mock private Player playerTwo;
   @Mock private PaperRockScissorsRound paperRockScissorsRound;
   @InjectMocks private PaperRockScissors testee;
 
@@ -26,8 +26,8 @@ class PaperRockScissorsTest {
   @CsvSource({"1"})
   public void playGame_callsNTimesToPlayRound(int numberOfRounds) {
 
-    when(playerOneHandSignGetter.getHandSign()).thenReturn(HandSign.PAPER);
-    when(playerTwoHandSignGetter.getHandSign()).thenReturn(HandSign.ROCK);
+    when(playerOne.getHandSign()).thenReturn(HandSign.PAPER);
+    when(playerTwo.getHandSign()).thenReturn(HandSign.ROCK);
     when(paperRockScissorsRound.playRound(any(), any()))
         .thenReturn(RoundResult.WINS_PLAYER_ONE);
 

@@ -1,6 +1,6 @@
 package domain;
 
-public interface HandSignGetter {
+public interface Player {
 
   HandSign getHandSign();
 }

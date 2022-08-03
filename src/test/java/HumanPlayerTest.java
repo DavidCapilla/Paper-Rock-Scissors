@@ -11,9 +11,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class HandSignScannerTest {
+class HumanPlayerTest {
 
-  private HandSignScanner testee = new HandSignScanner();
+  private HumanPlayer testee = new HumanPlayer();
 
   private static Stream<Arguments> provideInputHandSignPair() {
     return Stream.of(

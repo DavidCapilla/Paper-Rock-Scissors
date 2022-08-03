@@ -1,8 +1,8 @@
 import domain.HandSign;
-import domain.HandSignGetter;
+import domain.Player;
 import java.util.Random;
 
-public class RandomHandSignGenerator implements HandSignGetter {
+public class ComputerPlayer implements Player {
 
   private Random randomGenerator = new Random();
 
