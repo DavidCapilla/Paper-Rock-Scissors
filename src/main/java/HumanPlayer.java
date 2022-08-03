@@ -7,7 +7,9 @@ public class HumanPlayer implements Player {
   @Override
   public HandSign getHandSign() {
 
-    // I wanted to have the scanner as a field of the class but I had testing problems.
+    // With more time I would create a wrapper of this scanner it order to
+    // avoid dependency an better testing. I place it here to avoid testing
+    // issues derived of not doing the previous thing.
     Scanner inputScanner = new Scanner(System.in);
 
     HandSign handSign;
